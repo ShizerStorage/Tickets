@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Мій профіль</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h2>Мій профіль</h2>
+<p><strong>Ім'я:</strong> <span th:text="${customer.name}"></span></p>
+<p><strong>Email:</strong> <span th:text="${customer.email}"></span></p>
+
+<h3>Мої квитки</h3>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Подія</th>
+        <th>Дата</th>
+        <th>Місце</th>
+        <th>Ціна</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ticket : ${tickets}">
+        <td th:text="${ticket.id}"></td>
+        <td th:text="${ticket.event.name}"></td>
+        <td th:text="${ticket.event.eventDate}"></td>
+        <td th:text="${ticket.event.place.name}"></td>
+        <td th:text="${ticket.cost} + ' грн'"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/">На головну</a>
+</body>
+</html>

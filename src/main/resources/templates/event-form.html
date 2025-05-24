@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Подія</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h2 th:text="${event.id} ? 'Редагування події' : 'Створення події'"></h2>
+<form th:action="@{${event.id} ? '/admin/events/edit/' + event.id : '/admin/events/create'}" th:object="${event}" method="post">
+    <label>Назва: <input type="text" th:field="*{name}" required></label><br>
+    <label>Дата: <input type="date" th:field="*{eventDate}" required></label><br>
+    <button type="submit">Зберегти</button>
+</form>
+</body>
+</html>

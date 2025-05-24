@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Список подій</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h2>Список подій</h2>
+
+<form action="/events" method="get">
+    <input type="text" name="query" placeholder="Введіть назву події">
+    <button type="submit">Пошук</button>
+</form>
+
+<form action="/events" method="get">
+    <input type="hidden" name="upcoming" value="true">
+    <button type="submit">Майбутні події</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Назва</th>
+        <th>Дата</th>
+        <th>Місце</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.id}"></td>
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.eventDate}"></td>
+        <td th:text="${event.place.name}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/">На головну</a>
+</body>
+</html>

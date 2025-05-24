@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Історія покупок</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h2>Історія покупок</h2>
+<table>
+    <tr>
+        <th>Подія</th>
+        <th>Місце</th>
+        <th>Дата події</th>
+        <th>Ціна</th>
+        <th>Дата покупки</th>
+    </tr>
+    <tr th:each="ticket : ${tickets}">
+        <td th:text="${ticket.event.name}"></td>
+        <td th:text="${ticket.number}"></td>
+        <td th:text="${ticket.event.eventDate}"></td>
+        <td th:text="${ticket.cost}"></td>
+        <td th:text="${ticket.purchaseDate}"></td>
+    </tr>
+</table>
+</body>
+</html>

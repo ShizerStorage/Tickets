@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Мої квитки</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h2>Мої квитки</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Подія</th>
+        <th>Ціна</th>
+        <th>Місце</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ticket : ${tickets}">
+        <td th:text="${ticket.id}"></td>
+        <td th:text="${ticket.event.name}"></td>
+        <td th:text="${ticket.cost}"></td>
+        <td th:text="${ticket.number}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/">На головну</a>
+</body>
+</html>
